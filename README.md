@@ -23,9 +23,10 @@ You should be able to see it in the docker process list:
 
 And you should be able to interact with etcd:
 
-   curl -L http://127.0.0.1:4001/v2/keys/message -X PUT -d value="Hello world"
-   curl -L http://127.0.0.1:4001/v2/keys/message
+    curl -L http://127.0.0.1:4001/v2/keys/message -X PUT -d value="Hello world"
+    curl -L http://127.0.0.1:4001/v2/keys/message
 
 To stop the container:
-   docker stop $(docker ps | awk '/etcd/ {print $1}')
-   # docker + ansible + packer = :)
+
+    docker stop $(docker ps | awk '/etcd/ {print $1}')
+    # docker + ansible + packer = :)
