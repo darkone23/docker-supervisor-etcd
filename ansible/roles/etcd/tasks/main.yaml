@@ -1,0 +1,12 @@
+- name: ensuring required directories
+  file: path={{ item }}/ state=directory
+  with_items:
+    - '{{ src }}'
+    - '{{ bin }}'
+
+- name: fetching etcd
+  get_url: url={{ url }} dest={{ archive }}
+
+- name: extracting etcd
+  shell: creates={{ bin }}/etcdctl
+         tar -C {{ bin }} -xzf {{ archive }} {{ etcd }} {{ etcdctl }} --strip-components=1

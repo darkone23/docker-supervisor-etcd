@@ -1,0 +1,6 @@
+[submodule "ansible/roles/supervisor"]
+	path = ansible/roles/supervisor
+	url = https://github.com/eggsby/ansible-supervisor
+[submodule "ansible/roles/supervise"]
+	path = ansible/roles/supervise
+	url = https://github.com/eggsby/ansible-supervise

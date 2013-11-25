@@ -1,0 +1,16 @@
+version:  'v0.2.0-rc1'
+platform: 'Linux-x86_64'
+release:  'etcd-{{ version }}-{{ platform }}'
+
+url:      'https://github.com/coreos/etcd/releases/download/{{ version }}/{{ release }}.tar.gz'
+archive:  '{{ install_dir }}/src/{{ release }}.tar.gz'
+
+bin:      '{{ install_dir }}/bin'
+src:      '{{ install_dir }}/src'
+archive:  '{{ src }}/{{ release }}.tar.gz'
+
+etcd:     '{{ release }}/etcd'
+etcdctl:  '{{ release }}/etcdctl'
+
+etcd_client_address: '127.0.0.1:4001'
+etcd_server_address: '127.0.0.1:7001'

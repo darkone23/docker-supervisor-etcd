@@ -1,0 +1,16 @@
+{
+  "builders": [{
+      "type": "docker",
+      "image": "egghead/ubuntu-ansible-1.4",
+      "export_path": "ansible-provisioned.tar"
+  }],
+  "provisioners": [{
+      "type": "ansible-local",
+      "playbook_file": "ansible/etcd.yaml",
+      "role_paths": [
+        "ansible/roles/supervisor",
+        "ansible/roles/supervise",
+        "ansible/roles/etcd"
+      ]
+  }]
+}

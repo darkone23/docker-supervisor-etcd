@@ -1,0 +1,15 @@
+- name: installing etcd as a supervised app
+  hosts: all
+
+  vars:
+    supervisor_virtualenv: /.virtualenvs/supervisor
+    supervisor_home: /opt/supervisor
+
+  roles:
+    - role: etcd
+      install_dir: /opt
+
+    - role: supervise
+      name: etcd
+      directory: /opt/etcd
+      command: /opt/bin/etcd -n {{ ansible_hostname }} -c {{ etcd_client_address }} -s {{ etcd_server_address }} -cl 0.0.0.0 -sl 0.0.0.0
