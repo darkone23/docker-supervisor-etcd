@@ -6,7 +6,8 @@
       user: name=etcd shell=/bin/bash home=/home/etcd
 
 - hosts: all
-  remote_user: etcd
+  sudo: yes
+  sudo_user: etcd
 
   vars:
     supervisor_virtualenv: /home/etcd
@@ -18,5 +19,6 @@
 
     - role: supervise
       name: etcd
+      user: etcd
       directory: /home/etcd
       command: /home/etcd/bin/etcd -n {{ ansible_hostname }} -c {{ etcd_client_address }} -s {{ etcd_server_address }} -cl 0.0.0.0 -sl 0.0.0.0
